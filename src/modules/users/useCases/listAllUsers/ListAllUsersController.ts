@@ -8,9 +8,13 @@ class ListAllUsersController {
   handle(request: Request, response: Response): Response {
     const { id: user_id } = request.params;
 
-    const user = this.listAllUsersUseCase.execute({ user_id });
+    const users = this.listAllUsersUseCase.execute({ user_id });
 
-    return response.status(201).json(user).send();
+    if (!users) {
+      return response.status(400).json({ message: "users not found" });
+    }
+
+    return response.status(200).json(users).send();
   }
 }
 

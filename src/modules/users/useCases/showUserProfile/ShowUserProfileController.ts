@@ -10,6 +10,10 @@ class ShowUserProfileController {
 
     const user = this.showUserProfileUseCase.execute({ user_id });
 
+    if (!user) {
+      return response.status(400).json({ message: "User not found" });
+    }
+
     return response.status(201).json(user).send();
   }
 }
