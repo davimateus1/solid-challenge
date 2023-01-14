@@ -37,13 +37,13 @@ class UsersRepository implements IUsersRepository {
   findById(id: string): User | undefined {
     const user = this.users.find((user) => user.id === id);
 
-    return user || undefined;
+    return user;
   }
 
   findByEmail(email: string): User | undefined {
     const user = this.users.find((user) => user.email === email);
 
-    return user || undefined;
+    return user;
   }
 
   turnAdmin(receivedUser: User): User {
