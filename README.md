@@ -1,4 +1,4 @@
-#  Introdução ao SOLID + Documentação com o Swagger :rocket: :purple_heart:
+#  Introdução ao SOLID + Documentação com o Swagger
 
 ## :dart: Objetivo
 
