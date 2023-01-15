@@ -185,7 +185,77 @@
     "/users/{user_id}": {
       "get": {
         "tags": ["Users"],
-        "summary": "Get a specific user"
+        "summary": "Get a specific user",
+        "description": "Only admin users can execute this request",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "88a1ee71-0f34-48cf-a8c6-c6011d26b5e0",
+                  "name": "Davi Mateus",
+                  "email": "davi@gmail.com",
+                  "admin": false,
+                  "created_at": "2021-03-01T00:00:00.000Z",
+                  "updated_at": "2021-03-01T00:00:00.000Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not permitted or not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "User not found"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/users/{user_id}/admin": {
