@@ -25,7 +25,7 @@
 - [x] Should be able to find user by e-mail address
 - [x] Should be able to turn an user as admin
 
-##### Testes de useCases
+#### Testes de useCases
 - [x] Should be able to create new users
 - [x] Should not be able to create new users when email is already taken
 - [x] Should be able to turn an user as admin
